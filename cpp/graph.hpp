@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -22,10 +23,11 @@ private:
 	};
 
 
-	int numVertices_;
-	vector<vector<Vertex>> adjLists_;
 
 public:
+	vector<vector<Vertex>> adjLists_;
+	int numVertices_;
+
 	Graph() = delete;
 	Graph(size_t size); // с количеством вершин
 	~Graph() = default;
@@ -35,4 +37,9 @@ public:
 
 	friend ostream& operator<< (std::ostream &out, const Graph& graph);
 
+
+
 };
+
+
+void dijkstra(const Graph& graph, const int& start);

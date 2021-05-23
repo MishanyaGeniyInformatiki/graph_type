@@ -1,8 +1,8 @@
 CFLAGS = -Wall -g -fprofile-arcs -ftest-coverage
-all: graph
+all: graph rm
 
-graph: graph.o test.o rm
-	g++ graph.o -o graph ${CFLAGS}
+graph: graph.o test.o
+	g++ graph.o test.o -o graph ${CFLAGS}
 
 graph.o: graph.cpp
 	g++ -c graph.cpp

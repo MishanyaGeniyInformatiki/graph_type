@@ -1,6 +1,4 @@
-#include "graph.cpp"
-
-
+#include "graph.hpp"
 int main () {
 
 
@@ -26,7 +24,9 @@ int main () {
 	graph.AddEdge(5, 0, 14);
 	// 1 до 2-й составляет 7, до 3-й — 9, до 4-й — 20, до 5-й — 20, до 6-й — 11.
 
-	cout << graph;
+	cout << graph << endl;
+
+	dijkstra(graph, 0);
 
 	return 0;
 }
