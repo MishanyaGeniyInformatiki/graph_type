@@ -27,13 +27,14 @@ private:
 public:
 	vector<vector<Vertex>> adjLists_;
 	int numVertices_;
+	double max_weight_ = -1.;
 
 	Graph() = delete;
 	Graph(size_t size); // с количеством вершин
 	~Graph() = default;
 
 	void AddEdge(const int& start, const int& final, const double& weight);
-	const int Degree(const int& vert_num);
+	const int Degree(const uint32_t& vert_num);
 
 	friend ostream& operator<< (std::ostream &out, const Graph& graph);
 
