@@ -30,6 +30,7 @@ public:
 	double max_weight_ = -1.;
 
 	Graph() = delete;
+	Graph(Graph graph) = delete;
 	Graph(size_t size); // с количеством вершин
 	~Graph() = default;
 

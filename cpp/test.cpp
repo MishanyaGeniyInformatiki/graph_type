@@ -30,14 +30,14 @@ try {
 	cout << graph << endl;
 
 	cout << graph.Degree(7);
-
 	dijkstra(graph, 0);
 }
-catch (const overflow_error& err) {
-	cout << "Cannot count: " << err.what() << endl;
+catch (const out_of_range& o_o_r) {
+	cerr << "Out of range: " << o_o_r.what() << endl;
+
 }
 catch (const runtime_error& e) {
-	cout << "Cannot build graph: " << e.what() << endl;
+	cerr << "Cannot build graph: " << e.what() << endl;
 }
 
 	return 0;
