@@ -23,7 +23,7 @@ void Graph::AddEdge(const int &start, const int &final, const double &weight) {
 
 const int Graph::Degree(const uint32_t &vert_num) {
   if (vert_num >= numVertices_) {
-    throw overflow_error("Vertex numer is out of range");
+    throw out_of_range("Vertex numer = " + to_string(vert_num) + "/" + to_string(numVertices_ - 1));
   }
   return adjLists_[vert_num].size();
 }
@@ -45,7 +45,9 @@ ostream &operator<<(std::ostream &out, const Graph &graph) {
 }
 
 void dijkstra(const Graph &graph, const int &start) {
-
+  if (graph.max_weight_ * graph.numVertices_ >= LONG_MAX) {
+    throw out_of_range("max( weight * deg(G) )");
+  } 
   queue<int> q;
   size_t numvert = graph.numVertices_;
 
