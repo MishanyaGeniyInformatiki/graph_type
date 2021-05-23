@@ -4,6 +4,7 @@
 #include <queue>
 #include <memory>
 #include <iterator>
+#include <climits>
 
 using namespace std;
 
@@ -26,15 +27,15 @@ private:
 
 public:
 	vector<vector<Vertex>> adjLists_;
-	int numVertices_;
+	uint32_t numVertices_;
 	double max_weight_ = -1.;
 
 	Graph() = delete;
-	Graph(Graph graph) = delete;
+	Graph(const Graph& graph) = delete;
 	Graph(size_t size); // с количеством вершин
 	~Graph() = default;
 
-	void AddEdge(const int& start, const int& final, const double& weight);
+	void AddEdge(const uint32_t& start, const uint32_t& final, const double& weight);
 	const int Degree(const uint32_t& vert_num);
 
 	friend ostream& operator<< (std::ostream &out, const Graph& graph);

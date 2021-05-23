@@ -1,4 +1,3 @@
-#pragma once
 #include "graph.hpp"
 #include <climits>
 
@@ -7,7 +6,7 @@ Graph::Graph(size_t size) {
   numVertices_ = size;
 }
 
-void Graph::AddEdge(const int &start, const int &final, const double &weight) {
+void Graph::AddEdge(const uint32_t &start, const uint32_t &final, const double &weight) {
   if ((start >= numVertices_) || (final >= numVertices_)) {
     throw runtime_error("Start point or final destination are out of range");
   }
@@ -78,7 +77,7 @@ void dijkstra(const Graph &graph, const int &start) {
     }
 
     long min_dist = INF;
-    for (int i = 0; i < numvert;
+    for (uint32_t i = 0; i < numvert;
          i++) { // выбираю на роль следующей вершины вершину с минимальным dist
 
       if (!visited[i] && dist[i] < min_dist) {
@@ -92,7 +91,7 @@ void dijkstra(const Graph &graph, const int &start) {
     }
   }
 
-  for (int i = 0; i < numvert; i++) { // печатаю расстояния
+  for (uint32_t i = 0; i < numvert; i++) { // печатаю расстояния
     cout << "Distance from " << start << " vertex to " << i
          << " vertex = " << dist[i] << endl;
   }

@@ -4,9 +4,11 @@
 
 int main () {
 
+for (int i = 0; i < 5; ++i) {
 try {
-	Graph graph(6);
 
+	Graph graph(6);
+if (i == 0){
 	graph.AddEdge(0, 1, 7);
 	graph.AddEdge(0, 5, 14);
 	graph.AddEdge(0, 2, 9);
@@ -32,6 +34,33 @@ try {
 	cout << graph.Degree(7);
 	dijkstra(graph, 0);
 }
+else if (i == 1) {
+	graph = Graph(2);
+    graph.AddEdge(0, 1, 54);
+    graph.AddEdge(0, 0, 1);
+}
+ else if (i == 2) { 
+ // тест на недопустимый номер вершины в функции addEdge
+	graph = Graph(2);
+    graph.AddEdge(0, 1, 54);
+    graph.AddEdge(0, 2, 54);
+ }
+ else if (i == 3) {
+// тест на недопустимый номер вершины в функции degree
+	graph = Graph(2);
+    graph.AddEdge(0, 1, 54);
+    graph.AddEdge(1, 0, 54);
+    cout << graph.Degree(2) << endl;
+ }
+ else{
+ // тест на слишком тяжелое ребро в dijkstra
+	graph = Graph(2);
+    graph.AddEdge(0, 1, LONG_MAX);
+    graph.AddEdge(1, 0, 54);
+    dijkstra(graph, 0);
+ }
+}
+
 catch (const out_of_range& o_o_r) {
 	cerr << "Out of range: " << o_o_r.what() << endl;
 
@@ -39,6 +68,6 @@ catch (const out_of_range& o_o_r) {
 catch (const runtime_error& e) {
 	cerr << "Cannot build graph: " << e.what() << endl;
 }
-
+}
 	return 0;
 }
