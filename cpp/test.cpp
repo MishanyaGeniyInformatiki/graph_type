@@ -1,7 +1,10 @@
 #include "graph.hpp"
+#include <fstream>
+
+
 int main () {
 
-
+try {
 	Graph graph(6);
 
 	graph.AddEdge(0, 1, 7);
@@ -26,7 +29,16 @@ int main () {
 
 	cout << graph << endl;
 
+	cout << graph.Degree(7);
+
 	dijkstra(graph, 0);
+}
+catch (const overflow_error& err) {
+	cout << "Cannot count: " << err.what() << endl;
+}
+catch (const runtime_error& e) {
+	cout << "Cannot build graph: " << e.what() << endl;
+}
 
 	return 0;
 }
